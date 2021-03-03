@@ -243,7 +243,7 @@ open class Swifty360CameraController: NSObject, UIGestureRecognizerDelegate {
 
      - Parameter animated: Passing `YES` will animate the change with a standard duration.
      */
-    func reorientVerticalCameraAngleToHorizon(animated: Bool) {
+    func resetCameraAngle(animated: Bool) {
         if animated {
             isAnimatingReorientation = true
             SCNTransaction.begin()
