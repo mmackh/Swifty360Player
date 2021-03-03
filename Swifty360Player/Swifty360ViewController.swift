@@ -181,8 +181,8 @@ open class Swifty360ViewController: UIViewController, Swifty360CameraControllerD
         playerScene.pause()
     }
 
-    open func reorientVerticalCameraAngleToHorizon(animated: Bool) {
-        cameraController.reorientVerticalCameraAngleToHorizon(animated: animated)
+    open func resetCameraAngle(animated: Bool) {
+        cameraController.resetCameraAngle(animated: animated)
     }
 
     internal func sceneBoundsForScreenBounds(screenBounds: CGRect) -> CGRect {
