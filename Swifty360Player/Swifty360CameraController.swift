@@ -54,7 +54,7 @@ public protocol Swifty360CameraControllerDelegate: class {
 public typealias Swifty360CompassAngleUpdateBlock = (_ compassAngle: Float) -> (Void)
 
 open class Swifty360CameraController: NSObject, UIGestureRecognizerDelegate {
-    static open var initialPosition: CGPoint = CGPoint(x: 3.14, y: 0.0)
+    static var initialPosition: CGPoint = CGPoint(x: 3.14, y: 0.0)
 
     /**
      The delegate of the controller.
