@@ -54,6 +54,7 @@ public protocol Swifty360CameraControllerDelegate: class {
 public typealias Swifty360CompassAngleUpdateBlock = (_ compassAngle: Float) -> (Void)
 
 open class Swifty360CameraController: NSObject, UIGestureRecognizerDelegate {
+    static open var initialPosition: CGPoint = CGPoint(x: 3.14, y: 0.0)
 
     /**
      The delegate of the controller.
@@ -136,7 +137,7 @@ open class Swifty360CameraController: NSObject, UIGestureRecognizerDelegate {
 
         pointOfView = view.pointOfView
         self.view = view
-        currentPosition = CGPoint(x: 3.14, y: 0.0)
+        currentPosition = Swifty360CameraController.initialPosition
         allowedDeviceMotionPanningAxes = Swifty360PanningAxis(rawValue: Swifty360PanningAxis.horizontal.rawValue | Swifty360PanningAxis.vertical.rawValue)
         allowedPanGesturePanningAxes = Swifty360PanningAxis(rawValue: Swifty360PanningAxis.horizontal.rawValue | Swifty360PanningAxis.vertical.rawValue)
 
@@ -249,12 +250,11 @@ open class Swifty360CameraController: NSObject, UIGestureRecognizerDelegate {
             SCNTransaction.animationDuration = CATransaction.animationDuration()
         }
 
-        var position = currentPosition
-        position?.y = 0
-        currentPosition = position
+        currentPosition = initialPosition
 
         var eulerAngles = pointOfView.eulerAngles
         eulerAngles.x = 0
+        eulerAngles.y = 0
         pointOfView.eulerAngles = eulerAngles
 
         if animated {
