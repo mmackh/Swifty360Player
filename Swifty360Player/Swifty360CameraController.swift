@@ -250,7 +250,7 @@ open class Swifty360CameraController: NSObject, UIGestureRecognizerDelegate {
             SCNTransaction.animationDuration = CATransaction.animationDuration()
         }
 
-        currentPosition = initialPosition
+        currentPosition = Swifty360CameraController.initialPosition
 
         var eulerAngles = pointOfView.eulerAngles
         eulerAngles.x = 0
